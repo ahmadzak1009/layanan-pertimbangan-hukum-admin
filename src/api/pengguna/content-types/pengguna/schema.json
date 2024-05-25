@@ -17,7 +17,8 @@
     },
     "email": {
       "type": "email",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "nip": {
       "type": "string"
@@ -33,6 +34,16 @@
     },
     "alamat": {
       "type": "string"
+    },
+    "identitasLengkap": {
+      "type": "boolean",
+      "default": false
+    },
+    "pengajuans": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::pengajuan.pengajuan",
+      "mappedBy": "pengguna"
     }
   }
 }

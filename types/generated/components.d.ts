@@ -5,9 +5,11 @@ export interface PengajuanProgres extends Schema.Component {
   info: {
     displayName: 'Progres';
     icon: 'hashtag';
+    description: '';
   };
   attributes: {
     progres: Attribute.String;
+    keterangan: Attribute.Text;
   };
 }
 

@@ -794,6 +794,7 @@ export interface ApiPengajuanPengajuan extends Schema.CollectionType {
     singularName: 'pengajuan';
     pluralName: 'pengajuans';
     displayName: 'Pengajuan';
+    description: '';
   };
   options: {
     draftAndPublish: false;
@@ -805,12 +806,12 @@ export interface ApiPengajuanPengajuan extends Schema.CollectionType {
     penandatanganSurat: Attribute.String;
     dokumenSurat: Attribute.Media;
     progressPengajuan: Attribute.Component<'pengajuan.progres', true>;
-    keterangan: Attribute.Text;
     pengguna: Attribute.Relation<
       'api::pengajuan.pengajuan',
-      'oneToOne',
+      'manyToOne',
       'api::pengguna.pengguna'
     >;
+    dokumenPendukung: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -841,12 +842,18 @@ export interface ApiPenggunaPengguna extends Schema.CollectionType {
   };
   attributes: {
     nama: Attribute.String;
-    email: Attribute.Email & Attribute.Required;
+    email: Attribute.Email & Attribute.Required & Attribute.Unique;
     nip: Attribute.String;
     nik: Attribute.String;
     instansi: Attribute.String;
     no_hp: Attribute.String;
     alamat: Attribute.String;
+    identitasLengkap: Attribute.Boolean & Attribute.DefaultTo<false>;
+    pengajuans: Attribute.Relation<
+      'api::pengguna.pengguna',
+      'oneToMany',
+      'api::pengajuan.pengajuan'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<

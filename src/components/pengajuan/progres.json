@@ -2,12 +2,16 @@
   "collectionName": "components_pengajuan_progres",
   "info": {
     "displayName": "Progres",
-    "icon": "hashtag"
+    "icon": "hashtag",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "progres": {
       "type": "string"
+    },
+    "keterangan": {
+      "type": "text"
     }
   }
 }

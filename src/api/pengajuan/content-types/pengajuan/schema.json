@@ -4,7 +4,8 @@
   "info": {
     "singularName": "pengajuan",
     "pluralName": "pengajuans",
-    "displayName": "Pengajuan"
+    "displayName": "Pengajuan",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -24,11 +25,12 @@
       "type": "string"
     },
     "dokumenSurat": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "files"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "progressPengajuan": {
       "displayName": "Progres",
@@ -36,13 +38,19 @@
       "repeatable": true,
       "component": "pengajuan.progres"
     },
-    "keterangan": {
-      "type": "text"
-    },
     "pengguna": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::pengguna.pengguna"
+      "relation": "manyToOne",
+      "target": "api::pengguna.pengguna",
+      "inversedBy": "pengajuans"
+    },
+    "dokumenPendukung": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ]
     }
   }
 }
