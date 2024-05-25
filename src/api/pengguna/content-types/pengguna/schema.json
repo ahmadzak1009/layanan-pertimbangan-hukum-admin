@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "penggunas",
+  "info": {
+    "singularName": "pengguna",
+    "pluralName": "penggunas",
+    "displayName": "Pengguna",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nama": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "nip": {
+      "type": "string"
+    },
+    "nik": {
+      "type": "string"
+    },
+    "instansi": {
+      "type": "string"
+    },
+    "no_hp": {
+      "type": "string"
+    },
+    "alamat": {
+      "type": "string"
+    }
+  }
+}

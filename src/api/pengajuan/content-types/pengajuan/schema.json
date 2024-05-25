@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pengajuans",
+  "info": {
+    "singularName": "pengajuan",
+    "pluralName": "pengajuans",
+    "displayName": "Pengajuan"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "perihal": {
+      "type": "string"
+    },
+    "nomorSurat": {
+      "type": "string"
+    },
+    "tanggalSurat": {
+      "type": "date"
+    },
+    "penandatanganSurat": {
+      "type": "string"
+    },
+    "dokumenSurat": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "progressPengajuan": {
+      "displayName": "Progres",
+      "type": "component",
+      "repeatable": true,
+      "component": "pengajuan.progres"
+    },
+    "keterangan": {
+      "type": "text"
+    },
+    "pengguna": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::pengguna.pengguna"
+    }
+  }
+}

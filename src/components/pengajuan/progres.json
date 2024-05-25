@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_pengajuan_progres",
+  "info": {
+    "displayName": "Progres",
+    "icon": "hashtag"
+  },
+  "options": {},
+  "attributes": {
+    "progres": {
+      "type": "string"
+    }
+  }
+}
