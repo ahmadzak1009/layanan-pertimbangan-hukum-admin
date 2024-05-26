@@ -10,6 +10,8 @@ export interface PengajuanProgres extends Schema.Component {
   attributes: {
     progres: Attribute.String;
     keterangan: Attribute.Text;
+    warnaNotif: Attribute.Enumeration<['yellow', 'green', 'red']>;
+    notifiedAt: Attribute.DateTime;
   };
 }
 

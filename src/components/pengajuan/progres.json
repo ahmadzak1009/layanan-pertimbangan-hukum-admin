@@ -12,6 +12,18 @@
     },
     "keterangan": {
       "type": "text"
+    },
+    "warnaNotif": {
+      "type": "enumeration",
+      "enum": [
+        "yellow",
+        "green",
+        "red"
+      ],
+      "required": false
+    },
+    "notifiedAt": {
+      "type": "datetime"
     }
   }
 }
