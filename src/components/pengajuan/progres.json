@@ -24,6 +24,13 @@
     },
     "notifiedAt": {
       "type": "datetime"
+    },
+    "file": {
+      "allowedTypes": [
+        "files"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
