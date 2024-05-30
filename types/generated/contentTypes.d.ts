@@ -386,6 +386,7 @@ export interface ApiPengajuanPengajuan extends Schema.CollectionType {
       'api::pengguna.pengguna'
     >;
     dokumenPendukung: Attribute.Media;
+    disetujui: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
