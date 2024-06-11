@@ -362,90 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiPengajuanPengajuan extends Schema.CollectionType {
-  collectionName: 'pengajuans';
-  info: {
-    singularName: 'pengajuan';
-    pluralName: 'pengajuans';
-    displayName: 'Pengajuan';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    perihal: Attribute.String;
-    nomorSurat: Attribute.String;
-    tanggalSurat: Attribute.Date;
-    penandatanganSurat: Attribute.String;
-    dokumenSurat: Attribute.Media;
-    progressPengajuan: Attribute.Component<'pengajuan.progres', true>;
-    pengguna: Attribute.Relation<
-      'api::pengajuan.pengajuan',
-      'manyToOne',
-      'api::pengguna.pengguna'
-    >;
-    dokumenPendukung: Attribute.Media;
-    disetujui: Attribute.Boolean;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::pengajuan.pengajuan',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::pengajuan.pengajuan',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiPenggunaPengguna extends Schema.CollectionType {
-  collectionName: 'penggunas';
-  info: {
-    singularName: 'pengguna';
-    pluralName: 'penggunas';
-    displayName: 'Pengguna';
-    description: '';
-  };
-  options: {
-    draftAndPublish: false;
-  };
-  attributes: {
-    nama: Attribute.String;
-    email: Attribute.Email & Attribute.Required & Attribute.Unique;
-    nip: Attribute.String;
-    nik: Attribute.String;
-    instansi: Attribute.String;
-    no_hp: Attribute.String;
-    alamat: Attribute.String;
-    identitasLengkap: Attribute.Boolean & Attribute.DefaultTo<false>;
-    pengajuans: Attribute.Relation<
-      'api::pengguna.pengguna',
-      'oneToMany',
-      'api::pengajuan.pengajuan'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::pengguna.pengguna',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::pengguna.pengguna',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -872,6 +788,90 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiPengajuanPengajuan extends Schema.CollectionType {
+  collectionName: 'pengajuans';
+  info: {
+    singularName: 'pengajuan';
+    pluralName: 'pengajuans';
+    displayName: 'Pengajuan';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    perihal: Attribute.String;
+    nomorSurat: Attribute.String;
+    tanggalSurat: Attribute.Date;
+    penandatanganSurat: Attribute.String;
+    dokumenSurat: Attribute.Media;
+    progressPengajuan: Attribute.Component<'pengajuan.progres', true>;
+    pengguna: Attribute.Relation<
+      'api::pengajuan.pengajuan',
+      'manyToOne',
+      'api::pengguna.pengguna'
+    >;
+    dokumenPendukung: Attribute.Media;
+    disetujui: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pengajuan.pengajuan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pengajuan.pengajuan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPenggunaPengguna extends Schema.CollectionType {
+  collectionName: 'penggunas';
+  info: {
+    singularName: 'pengguna';
+    pluralName: 'penggunas';
+    displayName: 'Pengguna';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    nama: Attribute.String;
+    email: Attribute.Email & Attribute.Required & Attribute.Unique;
+    nip: Attribute.String;
+    nik: Attribute.String;
+    instansi: Attribute.String;
+    no_hp: Attribute.String;
+    alamat: Attribute.String;
+    identitasLengkap: Attribute.Boolean & Attribute.DefaultTo<false>;
+    pengajuans: Attribute.Relation<
+      'api::pengguna.pengguna',
+      'oneToMany',
+      'api::pengajuan.pengajuan'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::pengguna.pengguna',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::pengguna.pengguna',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -882,8 +882,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::pengajuan.pengajuan': ApiPengajuanPengajuan;
-      'api::pengguna.pengguna': ApiPenggunaPengguna;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -892,6 +890,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::pengajuan.pengajuan': ApiPengajuanPengajuan;
+      'api::pengguna.pengguna': ApiPenggunaPengguna;
     }
   }
 }
